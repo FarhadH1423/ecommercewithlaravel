@@ -38,7 +38,6 @@ class CartController extends Controller
             $data['product_price'] = $product->price;
             $data['product_quantity'] = 1;
             $data['sub_total'] = $product->price;
-
             DB::table('carts')->insert($data);
         }
 

@@ -64,4 +64,5 @@ Route::get('decrement/{id}', 'User\CartController@decrement')->name('cart.decrem
 
 
 Route::get('order', 'User\OrderController@index')->name('order.index');
-Route::get('ordersubmit/{id}', 'User\OrderController@submit')->name('order.submit');
+Route::post('/ordersubmit', 'User\OrderController@submit')->name('order.submit');
+

@@ -15,12 +15,24 @@ class OrderController extends Controller
     }
 
     public function index(){
-        // if(Auth::check()){
-        //     return view('user.login');
-        // }
+        $users = auth()->user();
         $carts = Cart::all();
         $total = Cart::sum('sub_total');
+        return view('order.index', compact('carts','total','users'));
+    }
+
+    public function submit(){
         
-        return view('order.index', compact('carts','total'));
+        $users =  auth()->user();
+        $carts = Cart::where();
+        $data = array();
+        $data['product_name'] = $carts->product_name;
+        $data['product_price'] = $carts->product_price;
+        $data['product_quantity'] = $carts->product_quality;
+        $data['sub_total'] = $carts->sub_total;
+        $data['user_id'] = $users->id;
+        
+        DB::table('orders')->insert($data);
+        return redirect()->route('order.submit');
     }
 }
