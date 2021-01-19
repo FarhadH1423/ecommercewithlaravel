@@ -2,8 +2,8 @@
 
 namespace App\Http\Middleware;
 
-use Illuminate\Auth\Middleware\Authenticate as Middleware;
-
+use Illuminate\Auth\Middleware\Authenticate as Middleware; 
+use Illuminate\Http\Request; 
 class Authenticate extends Middleware
 {
     /**
@@ -19,13 +19,13 @@ class Authenticate extends Middleware
             if($request->is('admin') ){
                 return url('admin/login') ;
 
-            }elseif($request->is('user')){
-                return route('user.login');
+            }elseif($request->is('web')){
+                return url('user/login');
                 
             }
-            // else{
-            //     return route('owner.login');
-            // }
+            else{
+                return url('user/login');
+            }
            
         
             

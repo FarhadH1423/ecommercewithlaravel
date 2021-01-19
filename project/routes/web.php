@@ -12,6 +12,9 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+// Route::get('/test',function(){
+
+// })->name('login');
 
 Route::get('/', 'Front\FrontController@index')->name('front.index');
 Route::get('/details/{id}', 'Front\FrontController@details')->name('front.details');
@@ -58,3 +61,7 @@ Route::get('add-to-cart/{id}', 'User\CartController@addToCart')->name('cart.addt
 Route::get('removecart/{id}', 'User\CartController@remove')->name('cart.remove');
 Route::get('increment/{id}', 'User\CartController@increment')->name('cart.increment');
 Route::get('decrement/{id}', 'User\CartController@decrement')->name('cart.decrement');
+
+
+Route::get('order', 'User\OrderController@index')->name('order.index');
+Route::get('ordersubmit/{id}', 'User\OrderController@submit')->name('order.submit');

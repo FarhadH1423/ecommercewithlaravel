@@ -19,7 +19,7 @@ class CreateProductsTable extends Migration
             $table->string('price');
             $table->string('qunatity');
             $table->string('picture');
-            $table->foreignId('cat_id')->constrained('categories')->onDelete('cascade');;
+            $table->foreignId('cat_id')->constrained('categories')->onDelete('cascade');
             $table->timestamps();
         });
     }

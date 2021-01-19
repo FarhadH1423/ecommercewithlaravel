@@ -17,7 +17,7 @@
     </div>
 @endif
 
-    <table id="cart" class="table table-hover table-condensed" >
+    <table id="cart"  class="table">
         <thead>
         <tr>
             <th style="width: 200px">Product</th>
@@ -47,22 +47,26 @@
                         <a href="{{ route('cart.increment', $details['id']) }}" class="btn btn-primary"> +</a> 
                         <a href="{{ route('cart.decrement', $details['id']) }}" class="btn btn-danger"> -</a> 
                     </td>
-                    <td data-th="Action" class="text-center">${{ $details['product_price'] * $details['product_quantity'] }}</td>
+                    <td data-th="Action" >${{ $details['product_price'] * $details['product_quantity'] }}</td>
                     <td class="actions" data-th="">                       
                         <a href="{{ route('cart.remove', $details['id']) }}" class="btn btn-danger"> Delete</a> 
                     </td>
                 </tr>
             @endforeach
-        
         </tbody>
-        <tfoot>
-        <tr class="visible-xs">
-            <td class="text-center"><strong>Total {{ $total }}</strong></td>
+        
+        <tfoot style="float: right">
+        {{-- <tr class="text-right">
+            <td class="text-center"><strong>Totalhh {{ $total }}</strong></td>
+        </tr> --}}
+        <tr>
+            <td ><h4>Subtotal-  ${{ $total }}</h4></td>
         </tr>
         <tr>
             <td><a href="{{ url('/') }}" class="btn btn-warning"><i class="fa fa-angle-left"></i> Continue Shopping</a></td>
+            <td><a href="{{ route('order.index') }}" class="btn btn-success"><i class="fa fa-angle-right"></i> Checkout</a></td>
             <td colspan="2" class="hidden-xs"></td>
-            <td class="hidden-xs text-center"><strong>Subtotal-  ${{ $total }}</strong></td>
+            
         </tr>
         </tfoot>
     </table>

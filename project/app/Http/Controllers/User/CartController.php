@@ -28,7 +28,9 @@ class CartController extends Controller
             Cart::where('product_id',$id)->increment('product_quantity');
             $cart = Cart::where('product_id',$id)->first();
             $subTotal = $cart->product_quantity * $cart->product_price;
-            DB::table('carts')->where('product_id',$id)->update(['sub_total'=>$subTotal]);
+            DB::table('carts')
+                ->where('product_id',$id)
+                ->update(['sub_total'=>$subTotal]);
         } else{
             $data = array();
             $data['product_id'] = $product->id;
@@ -59,7 +61,9 @@ class CartController extends Controller
         Cart::where('id',$id)->decrement('product_quantity');
         $data = Cart::where('id',$id)->first();
         $subtotal = $data->product_price * $data->product_quantity;
-        DB::table('carts')->where('id',$id)->update(['sub_total'=> $subtotal]);
+        DB::table('carts')
+            ->where('id',$id)
+            ->update(['sub_total'=> $subtotal]);
         if($data->product_quantity<1){
             $data->delete();
         return redirect()->route('cart.index')->with('message','Product Deleted Sucessfully');
@@ -81,7 +85,9 @@ class CartController extends Controller
         Cart::where('id',$id)->increment('product_quantity');
         $data = Cart::where('id',$id)->first();
         $subtotal = $data->product_price * $data->product_quantity;
-        DB::table('carts')->where('id',$id)->update(['sub_total'=> $subtotal]);
+        DB::table('carts')
+            ->where('id',$id)
+            ->update(['sub_total'=> $subtotal]);
         return redirect()->route('cart.index')->with('message','Purchase Suceessfully');
         
     }
