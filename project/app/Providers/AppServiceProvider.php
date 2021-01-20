@@ -6,6 +6,8 @@ use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Schema;
 use App\Models\Setting;
 
+use App\Models\Cart;
+
 class AppServiceProvider extends ServiceProvider
 {
     /**
@@ -17,7 +19,7 @@ class AppServiceProvider extends ServiceProvider
     {
         //
     }
-
+    
     /**
      * Bootstrap any application services.
      *
@@ -27,6 +29,9 @@ class AppServiceProvider extends ServiceProvider
     {
         Schema::defaultStringLength(191);
         $logo = Setting::findOrFail(1);
+        $allcart = Cart::sum('product_quantity'); 
         view()->share('logo', $logo);
+        view()->share('allcart', $allcart);
+
     }
 }

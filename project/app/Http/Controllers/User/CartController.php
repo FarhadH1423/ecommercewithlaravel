@@ -22,7 +22,7 @@ class CartController extends Controller
         // if(!$product){
         //     abort(404);
         // }
-
+            
         $check = Cart::where('product_id',$id)->first();
         if($check){
             Cart::where('product_id',$id)->increment('product_quantity');

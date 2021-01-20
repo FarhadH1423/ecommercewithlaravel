@@ -8,8 +8,14 @@ use App\Models\Product;
 use App\Models\Category;
 use App\Models\Setting;
 use App\Models\Banner;
+use App\Models\Cart;
 class FrontController extends Controller
 {
+
+    public function __construct(){ 
+        
+        // return view('front.index',compact('allcart'));
+    }
     // public function __co
     public function index(){
         $products = Product::orderBy('id','desc')

@@ -52,7 +52,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 <fieldset>
                     <input type="hidden" name="cmd" value="_cart" />
                     <input type="hidden" name="display" value="1" />
-                    <a href="{{ route('cart.index') }}" class="btn btn-success mr-2">View your Cart<a>
+                    <a href="{{ route('cart.index') }}" class="btn btn-success mr-2 fas-fa-cart ">View your Cart-{{$allcart}}<a>
                 </fieldset>
             </form>
 		</div>

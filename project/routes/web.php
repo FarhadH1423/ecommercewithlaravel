@@ -18,6 +18,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', 'Front\FrontController@index')->name('front.index');
 Route::get('/details/{id}', 'Front\FrontController@details')->name('front.details');
+Route::get('/details/{id}', 'Front\FrontController@details')->name('front.details');
 
 Route::get('/admin/login', 'Admin\LoginController@showLoginForm')->name('admin.login');
 Route::post('/login/submit', 'Admin\LoginController@login')->name('admin.login.submit');
