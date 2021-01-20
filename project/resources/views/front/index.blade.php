@@ -29,10 +29,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 			   <!-- Collect the nav links, forms, and other content for toggling -->
 				<div class="collapse navbar-collapse" id="bs-megadropdown-tabs">
 					@foreach ($categories as $item)
-
 					<ul class="nav navbar-nav nav_1">
 						<li><a href="{{route('front.details',$item->id)}}">{{$item->name}}</a></li>
-						
 					</ul>
 					@endforeach
 				 </div><!-- /.navbar-collapse -->
@@ -129,8 +127,13 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 										</div>
 										<br>
 										<center>
-											<a href="{{ route('cart.addtocart',$item->id) }}" class="btn btn-success mr-2">Add to Cart<a>
-										
+											
+
+											@if ($item->quantity >= 1)
+											<a href="{{ route('cart.addtocart',$item->id) }}"  class="btn btn-success mr-2">Add to Cart<a>
+											@else
+											<a  class="btn btn-danger mr-2">Out of Stock<a>
+											@endif
 										
 									</center>
 										

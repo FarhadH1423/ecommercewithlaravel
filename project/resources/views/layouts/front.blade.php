@@ -96,7 +96,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		<div class="container">
 			<div class="w3ls_logo_products_left">
 				{{-- <h1><a href="index.html" style="background: {{asset('assets/images/service/'. $logos->picture)}},no repeat">Store</a></h1> --}}
-                <img src="{{asset('assets/images/service/'. $logo->picture)}}" height="100px" width="230" alt="">
+                <a href="{{route('front.index')}}"><img   src="{{asset('assets/images/service/'. $logo->picture)}}" height="100px" width="230" alt=""></a>
             </div>
 			<div class="w3ls_logo_products_left1">
 				<ul class="special_items">
