@@ -52,52 +52,14 @@
                                     <button class="submit check_out">Cash on Delivery</button>
                                 </div>
                             </section>
-                        </form>
+        </form>
                         <br>
                         <hr>
-                        <form action="{{ route('order.submit') }}" method="post" class="creditly-card-form agileinfo_form">
-                        <div id="paypal-button"></div>
-                        <script src="https://www.paypalobjects.com/api/checkout.js"></script>
-                        <script>
-                        paypal.Button.render({
-                            // Configure environment
-                            env: 'sandbox',
-                            client: {
-                            sandbox: 'demo_sandbox_client_id',
-                            production: 'demo_production_client_id'
-                            },
-                            // Customize button (optional)
-                            locale: 'en_US',
-                            style: {
-                            size: 'large',
-                            color: 'gold',
-                            shape: 'pill',
-                            },
-
-                            // Enable Pay Now checkout flow (optional)
-                            commit: true,
-
-                            // Set up a payment
-                            payment: function(data, actions) {
-                            return actions.payment.create({
-                                transactions: [{
-                                amount: {
-                                    total: '{{$total}}',
-                                    currency: 'USD'
-                                }
-                                }]
-                            });
-                            },
-                            // Execute the payment
-                            onAuthorize: function(data, actions) {
-                            return actions.payment.execute().then(function() {
-                                // Show a confirmation message to the buyer
-                                window.alert('Thank you for your purchase!');
-                            });
-                            }
-                        }, '#paypal-button');
-
-                        </script>
+                        
+                        
+                        <form action="{{ route('order.submit') }}" method="post" id="name_form">
+                            @csrf
+                            <button href=""  id="paypal-button"  class="btn btn-default btn-sm" type="submit"></button>
                         </form>
                     {{-- <div class="checkout-right-basket">
                     <a href="payment.html">Online Payment <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></a> --}}
@@ -133,3 +95,54 @@
 </div>
 <!-- //newsletter -->
 @endsection
+
+@push('js')
+
+
+<script src="https://www.paypalobjects.com/api/checkout.js"></script>
+<script>
+  paypal.Button.render({
+    // Configure environment
+    env: 'sandbox',
+    client: {
+      sandbox: 'Ae5QX87vAkLzQgprkrYoOoJSDsbYpyOl4V2dvICGRn7RRMYjFzHGu6-uVU4y8mwjxnvmf3nl6IJnutx2',
+      production: 'demo_production_client_id'
+    },
+    // Customize button (optional)
+    locale: 'en_US',
+    style: {
+      size: 'large',
+      color: 'gold',
+      shape: 'pill',
+    },
+
+    // Enable Pay Now checkout flow (optional)
+    commit: true,
+
+    // Set up a payment
+    payment: function(data, actions) {
+      return actions.payment.create({
+        transactions: [{
+          amount: {
+            total: {{ $total }},
+            currency: 'USD'
+          }
+        }]
+      });
+    },
+    // Execute the payment
+    onAuthorize: function(data, actions) {
+      return actions.payment.execute().then(function() {
+        // Show a confirmation message to the buyer
+            var form=document.getElementById('name_form');
+            form.submit();
+        window.alert('Thank you for your purchase!');
+     
+        
+      });
+    }
+  }, '#paypal-button');
+
+</script>
+
+@endpush

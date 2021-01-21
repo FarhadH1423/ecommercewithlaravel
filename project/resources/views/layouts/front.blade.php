@@ -244,6 +244,7 @@ $(".dropdown").hover(
     });
 
 </script>
+@stack('js');
 </body>
 </html>
 
