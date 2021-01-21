@@ -23,9 +23,9 @@ class Authenticate extends Middleware
                 return url('user/login');
                 
             }
-            else{
-                return url('user/login');
-            }
+            // else{
+            //     return url('user/login');
+            // }
            
         
             

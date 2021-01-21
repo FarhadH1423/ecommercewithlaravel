@@ -49,6 +49,29 @@
       </li> --}}
 
       <li class="nav-item">
+        <a class="nav-link" href="{{ route('cart.index') }}">
+          <i class="fas fa-fw fa-palette"></i>
+          <span>My Cart</span>
+        </a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" href="{{ route('order.index') }}">
+          <i class="fas fa-fw fa-palette"></i>
+          <span>Order Remaining</span>
+        </a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" href="{{route('user.order')}}">
+          <i class="fas fa-fw fa-palette"></i>
+          <span>My Order List</span>
+        </a>
+      </li>
+
+
+
+      <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseForm" aria-expanded="true"
           aria-controls="collapseForm">
           <i class="fab fa-fw fa-wpforms"></i>

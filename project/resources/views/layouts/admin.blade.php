@@ -34,6 +34,21 @@
       <div class="sidebar-heading">
         Features
       </div>
+
+      <li class="nav-item">
+        <a class="nav-link" href="{{ route('admin.order') }}">
+          <i class="fas fa-fw fa-table"></i>
+          <span>OrderList</span>
+        </a>
+      </li>
+{{-- 
+      <li class="nav-item">
+        <a class="nav-link" href="{{ route('category.index') }}">
+          <i class="fas fa-fw fa-table"></i>
+          <span>Category</span>
+        </a>
+      </li> --}}
+
       <li class="nav-item">
         <a class="nav-link" href="{{ route('category.index') }}">
           <i class="fas fa-fw fa-table"></i>

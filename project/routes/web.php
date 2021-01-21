@@ -63,6 +63,11 @@ Route::get('removecart/{id}', 'User\CartController@remove')->name('cart.remove')
 Route::get('increment/{id}', 'User\CartController@increment')->name('cart.increment');
 Route::get('decrement/{id}', 'User\CartController@decrement')->name('cart.decrement');
 
+Route::get('myorder', 'User\UserController@index')->name('user.order');
+Route::get('order-details/{id}', 'User\UserController@details')->name('user.details');
+
+Route::get('userorder', 'Admin\OrderController@index')->name('admin.order');
+Route::get('user/order-details/{id}', 'Admin\OrderController@details')->name('order.details');
 
 Route::get('order', 'User\OrderController@index')->name('order.index');
 Route::post('/ordersubmit', 'User\OrderController@submit')->name('order.submit');
