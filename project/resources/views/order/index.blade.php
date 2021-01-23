@@ -61,6 +61,10 @@
                             @csrf
                             <button href=""  id="paypal-button"  class="btn btn-default btn-sm" type="submit"></button>
                         </form>
+                        <br>
+                        <hr>
+                        <a href="{{route('order.checkout')}}">  
+                        <button class="success"> Stripe</button> </a>
                     {{-- <div class="checkout-right-basket">
                     <a href="payment.html">Online Payment <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></a> --}}
               </div>

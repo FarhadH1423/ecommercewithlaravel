@@ -10,7 +10,6 @@
       <th scope="col"> Id</th>
       
       <th scope="col">User Name</th>
-
       <th scope="col">Total Amount</th>
       <th scope="col">Details</th>
       

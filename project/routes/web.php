@@ -72,3 +72,8 @@ Route::get('user/order-details/{id}', 'Admin\OrderController@details')->name('or
 Route::get('order', 'User\OrderController@index')->name('order.index');
 Route::post('/ordersubmit', 'User\OrderController@submit')->name('order.submit');
 
+// Route::get('checkout',[Admin\CheckoutController::class, 'checkout']);
+//     Route::post('checkout',[Admin\CheckoutController::class, 'afterpayment'])->name('checkout.credit-card');
+
+Route::get('checkout', 'Admin\CheckoutController@checkout')->name('order.checkout');
+Route::post('checkout', 'Admin\CheckoutController@afterpayment')->name('checkout.credit-card');
